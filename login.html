@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK NOW</title>
+    <style>
+        /* Background color lavender */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: whitesmoke;   
+            text-align: center;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            background: lavender;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        form {
+            text-align: left;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        
+        /* Styled Submit Button */
+        button {
+            background-color: #4CAF50;     /* Green color */
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            border-radius: 8px;            /* Rounded corners */
+            transition: background 0.3s;   /* Smooth hover effect */
+        }
+        button:hover {
+            background-color: #45a049;     /* Darker green on hover */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>FILL THE DETAILS</h1>
+    
+    <form id="bookNow">
+        <label>First Name:</label>
+        <input type="text" id="Firstname" name="Firstname" required pattern="[A-Z,a-z]{6}" placeholder="Enter name>
+
+        <label>Last Name:</label>
+        <input type="text" id="Lastname" name="Lastname" >
+
+        <label>Email:</label>
+        <input type="email" id="Email" name="Email" required>
+
+        <label>Phone Number:</label>
+        <input type="text" id="Phonenumber" name="Phonenumber" required pattern="[0-9]{10}" placeholder="Enter 10-digit number">
+
+        <label>Date of Birth:</label>
+        <input type="date" id="DOB" name="DOB" required>
+
+        <label>Places:</label>
+        <input type="text" id="places" name="places" required>
+
+        <label>Place of Pick Up:</label>
+        <input type="text" id="pickupPlace" name="pickupPlace" required>
+
+        <label>Payment Status:</label>
+        <input type="text" id="PayStatus" name="PayStatus" required pattern="[0-9]{0-5}" placeholder="Enter amounnt">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Submitted Entries</h2>
+    <table id="entriesTable">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>DOB</th>
+                <th>Places</th>
+                <th>Pick Up Place</th>
+                <th>Payment Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Entries will be added here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    document.getElementById("bookNow").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Get form values
+        const firstName = document.getElementById("Firstname").value.trim();
+        const lastName = document.getElementById("Lastname").value.trim();
+        const email = document.getElementById("Email").value.trim();
+        const phoneNumber = document.getElementById("Phonenumber").value.trim();
+        const dob = document.getElementById("DOB").value.trim();
+        const places = document.getElementById("places").value.trim();
+        const pickupPlace = document.getElementById("pickupPlace").value.trim();
+        const payStatus = document.getElementById("PayStatus").value.trim();
+
+        // Validation
+        if (
+            firstName && lastName && email && phoneNumber &&
+            dob && places && pickupPlace && payStatus
+        ) {
+            // Add data to the table
+            const table = document.getElementById("entriesTable").getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            
+            newRow.innerHTML = `
+                <td>${firstName}</td>
+                <td>${lastName}</td>
+                <td>${email}</td>
+                <td>${phoneNumber}</td>
+                <td>${dob}</td>
+                <td>${places}</td>
+                <td>${pickupPlace}</td>
+                <td>${payStatus}</td>
+            `;
+
+            // Confirmation dialog to add another entry
+            const confirmAction = confirm("Do you want to add another entry?");
+            
+            if (confirmAction) {
+                // Reset form for new entry
+                document.getElementById("bookNow").reset();
+            } else {
+                alert("All entries saved successfully!");
+            }
+
+        } else {
+            alert("Please fill in all the fields correctly.");
+        }
+    });
+</script>
+
+</body>
+</html>

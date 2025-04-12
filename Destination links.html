@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Destinations</title>
+    <style>
+        /* Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: lavender;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            background: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background: #0056b3;
+        }
+        .destination__container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+        }
+        .destination__card {
+            width: 30%;
+            background: #fff;
+            margin: 15px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            overflow: hidden;
+            text-align: center;
+        }
+        .destination__card:hover {
+            transform: scale(1.05);
+        }
+        .destination__card img {
+            width: 100%;
+            height: auto;
+        }
+        .destination__details {
+            padding: 20px;
+        }
+        .destination__details h4 {
+            margin: 10px 0;
+            color: #4CAF50;
+        }
+        .destination__details p {
+            font-size: 14px;
+            color: #555;
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .back-btn a {
+            text-decoration: none;
+            color: white;
+            background: #4CAF50;
+            padding: 10px 30px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .back-btn a:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Top Destinations</h1>
+</header>
+
+<!-- Navigation Links -->
+<div class="nav-links">
+    <a href="#rome">Rome, Italy</a>
+    <a href="#london">London, UK</a>
+    <a href="#europe">Full Europe Tour</a>
+</div>
+
+<!-- Destination Cards -->
+<section class="destination__container">
+
+    <!-- Rome -->
+    <div id="rome" class="destination__card">
+        <img src="destination-1.jpg" alt="Rome, Italy">
+        <div class="destination__details">
+            <h2>Rome, Italy</h2>
+            <h4>$5.42k</h4>
+            <p>Explore the Colosseum, Vatican City, and Trevi Fountain. Enjoy local cuisine and wine tasting.</p>
+            <p>10 Days Trip</p>
+            <div class="back-btn">
+                <a href="#top">Back to Top</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- London -->
+    <div id="london" class="destination__card">
+        <img src="destination-2.jpg" alt="London, UK">
+        <div class="destination__details">
+            <h2>London, UK</h2>
+            <h4>$4.2k</h4>
+            <p>Visit Buckingham Palace, the Tower of London, and enjoy a ride on the London Eye.</p>
+            <p>12 Days Trip</p>
+            <div class="back-btn">
+                <a href="#top">Back to Top</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Europe -->
+    <div id="europe" class="destination__card">
+        <img src="destination-3.jpg" alt="Full Europe">
+        <div class="destination__details">
+            <h2>Full Europe Tour</h2>
+            <h4>$15k</h4>
+            <p>Explore multiple European cities including Paris, Rome, Berlin, and Amsterdam on a 28-day tour.</p>
+            <p>28 Days Trip</p>
+            <div class="back-btn">
+                <a href="#top">Back to Top</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>
